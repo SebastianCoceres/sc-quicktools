@@ -21,7 +21,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Info, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { useCopyToClipboard } from "usehooks-ts";
-import Description from "../../ui/descriptions";
+import Description from "../../components/ui/descriptions";
 import { functionsData } from "./functionDescriptions";
 
 const list = { hidden: { opacity: 0, y: -100 }, visible: { opacity: 1, y: 0 } };

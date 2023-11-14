@@ -1,7 +1,5 @@
 import MainLayout from "@/components/layouts/MainLayout";
-import {
-  TextTransform,
-} from "@/components/pages/";
+import { TextTransform } from "@/pages";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -21,21 +19,6 @@ export const routes = [
     description:
       "Transform text to various formats, such as camelCase, snake_case, kebab-case, and PascalCase.",
   },
-  // {
-  //   key: "3",
-  //   path: "/color-transform",
-  //   element: <ColorTransform />,
-  //   title: "Color Transform",
-  //   description:
-  //     "Transform colors to various formats, such as hex, rgb, rgba, and hsl.",
-  // },
-  // {
-  //   key: "4",
-  //   path: "/sentiment",
-  //   element: <SentimentAnalysis />,
-  //   title: "Sentiment Analysis",
-  //   description: "Get sentiment analysis of text.",
-  // },
 ];
 
 function App() {
