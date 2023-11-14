@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/sc-quicktools/assets/apple-touch-icon-36d0f6b9.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfnCwUQHxxC5rEYAAACF0lEQVRIx+2UP2hTURTGf+/1BdJHSktBJMQGiuhQNUIzRIRuItgsRZwUQkEoiH/qIg4iLhUVHFzUVQcXFzcHqYqiaEwRW7rEFqTV0rRSbNMa08Tkc2hM3w154qZDf9t3v++edziPe2CLf4/191Ft5C2ENi9aNaONGHG6aaPCCjN8YJKV3zEBbOMACaIEWeMTad6xXLsuR0k9UV5e8nqpQbkChIJKKaN1j1/Qc/WrRSBH57WsZhR1XAi5uq5CE39JJ2Who1qSH1eFLF1Qycf/oj6b03T6zq0K7GeYgI8fIeXQ23A4yzQthOkiwCRwjIhRcp1Wj+5xDAkwT44SYxSAUVz6DDdLmkGPXnWYYbcRSZAARI57lOmky3BzTHlUgUfoooo+I6rohvYqZ5w9VbeuKatv+qr3OiPX4S4uvSxi002ckKe+TYpxKkYHDgtc4j4JwhQZpeCQ5wU99PCdMR5zzhjZdvawZhQIEmGAJLvowOUQJ9ARzdYbfKgRVY2Wb2rU0NO6onJdrWrAZtgzpiRxfhpfXOSVoaMM0VJXIfrRR/lT0GHFNPeHRMZmDn+e8ZYJbjd0tYmYQqd8f2Na+4RQSLeaZsp6oB2oXZeVbXguVc3rjnaK2nN2NaRxI1PShM6qXVgCiwhxYkTpIECJBSZ5TZayVe8UCHOQOFFa+cFnMrxhfmNBeUM2NlWqzTddbaXZVL0rbYv/gV8LpR87mL809QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMy0xMS0wNVQxNjozMToyOCswMDowMMc41zQAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjMtMTEtMDVUMTY6MzE6MjgrMDA6MDC2ZW+IAAAAV3pUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAHic4/IMCHFWKCjKT8vMSeVSAAMjCy5jCxMjE0uTFAMTIESANMNkAyOzVCDL2NTIxMzEHMQHy4BIoEouAOoXEXTyQjWVAAAAAElFTkSuQmCC">
+  <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfnCwUQHxxC5rEYAAAA90lEQVQoz7XRMUpCAQCA4V99ZUKQiEIJERYRaEQ0VCeoe3SKgoaG7lBbS7sQFEGDEURrESQ1hIguliiIqajvb2joBH5X+GDiIsIseRYJqVOmA8RYYZ0ZqrzQwU2Lth05su2NOeMeWnVkaMeiBXzwz9jQgfse2PffdcA2ACGvtOjxzRFxoE2feSAf5Z0hQ6Lk2SFDjiUAalxSocJF7KRBmk96LDBFliQZ5oAGZ8SRK7x1aNdHf1S990nVpmVVSwEbBATsEgHgji+2mCZFCoAsnlp3qI5tem7ahMfWHBnateRexGmWWSNJnw/eGAAxVimQoM4zrclf8QvEyJq5r0q2VwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMy0xMS0wNVQxNjozMToyOCswMDowMMc41zQAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjMtMTEtMDVUMTY6MzE6MjgrMDA6MDC2ZW+IAAAAV3pUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAHic4/IMCHFWKCjKT8vMSeVSAAMjCy5jCxMjE0uTFAMTIESANMNkAyOzVCDL2NTIxMzEHMQHy4BIoEouAOoXEXTyQjWVAAAAAElFTkSuQmCC">
+  <link rel="manifest" href="data:application/manifest+json;base64,ewogICAgIm5hbWUiOiAiIiwKICAgICJzaG9ydF9uYW1lIjogIiIsCiAgICAiaWNvbnMiOiBbCiAgICAgICAgewogICAgICAgICAgICAic3JjIjogIi9hbmRyb2lkLWNocm9tZS0xOTJ4MTkyLnBuZyIsCiAgICAgICAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICAic3JjIjogIi9hbmRyb2lkLWNocm9tZS01MTJ4NTEyLnBuZyIsCiAgICAgICAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgICAgIH0KICAgIF0sCiAgICAidGhlbWVfY29sb3IiOiAiI2ZmZmZmZiIsCiAgICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZmZmZmZmIiwKICAgICJkaXNwbGF5IjogInN0YW5kYWxvbmUiCn0K">
+  <link rel="mask-icon" href="/sc-quicktools/assets/safari-pinned-tab-6fd83360.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>SC-Quicktools</title>
+  <script type="module" crossorigin src="/sc-quicktools/assets/index-8b24d1eb.js"></script>
+  <link rel="stylesheet" href="/sc-quicktools/assets/index-e151ab8f.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  
+</body>
+
+</html>
