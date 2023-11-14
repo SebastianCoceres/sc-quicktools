@@ -13,7 +13,7 @@ export const routes = [
   },
   {
     key: "2",
-    path: "/text-transform",
+    path: "/sc-quicktools/",
     element: <TextTransform />,
     title: "Text Transform",
     description:
