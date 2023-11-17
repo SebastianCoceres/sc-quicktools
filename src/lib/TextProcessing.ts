@@ -1,26 +1,45 @@
-// Text Formatting and Cleaning Functions
+//! Text Formatting and Cleaning Functions
+
+const ConvertToNormalText = (text: string) => {
+    let t = text;
+
+    // Agregar espacio entre letras y números
+    if (/\d/.test(text)) {
+        t = t.replace(/([a-z])(\d+)/gi, function (_, letter, digits) {
+            return letter + ' ' + digits;
+        });
+    }
+
+    // Agregar espacio entre palabras en camelCase
+    const words = t.split(/(?=[A-Z])|_|-| /);
+
+    // Manejar guiones y guiones bajos como separadores de palabras
+    const normalizedText = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+    return normalizedText;
+};
+
 export const Trimmed = (text: string) => {
     return ConvertToNormalText(text).trim();
-}
+};
 
 export const RemoveExtraSpaces = (text: string) => {
-    return ConvertToNormalText(text).replace(/\s+/g, " ");
-    // Example: "  Hello   World  " -> "Hello World"
-}
+    // Eliminar espacios adicionales
+    return ConvertToNormalText(text).replace(/ {2,}/g, " ");
+};
 
 export const RemoveAccents = (text: string) => {
+    // Eliminar acentos y caracteres especiales
     return ConvertToNormalText(text).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\s]|_/g, '').replace(/[ñÑ]/g, 'n');
-    // Example: "áéíóú" -> "aeiou"
-}
+};
 
 export const CleanText = (text: string) => {
-    return Trimmed(RemoveAccents(RemoveExtraSpaces(text)));
-    // Example: "  Helló   World  " -> "Hello World"
-}
+    // Aplicar todas las funciones de normalización
+    return Trimmed(RemoveAccents(RemoveExtraSpaces(ConvertToNormalText(text))));
+};
 
-// Case Conversion Functions
+//! Case Conversion Functions
 export const Uppercase = (text: string) => {
-    console.log(text)
     return ConvertToNormalText(text).toUpperCase();
     // Example: "hello world" -> "HELLO WORLD"
 }
@@ -43,7 +62,7 @@ export const TitleCase = (text: string) => {
     // Example: "hello world" -> "Hello World"
 }
 
-// Text Transformation Functions
+//! Text Transformation Functions
 export const Reverse = (text: string) => {
     return ConvertToNormalText(text).split("").reverse().join("");
     // Example: "hello world" -> "dlrow olleh"
@@ -66,11 +85,13 @@ export const Snakecase = (text: string) => {
 }
 
 export const Kebabcase = (text: string) => {
-    return CleanText(ConvertToNormalText(text)).replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match) {
+    const normal = ConvertToNormalText(text)
+    const cleaned = CleanText(normal)
+    return cleaned.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match) {
         if (+match === 0) return "-";
         return match.toLowerCase();
         // Example: "Hello World" -> "hello-world"
-    });
+    })
 }
 
 export const PascalCase = (text: string) => {
@@ -89,7 +110,7 @@ export const CapitalSnakeCase = (text: string) => {
     });
 }
 
-// Counting Functions
+//! Counting Functions
 export const GetLength = (text: string) => {
     return String(RemoveExtraSpaces(text).length);
     // Example: "hello world" -> 11
@@ -113,13 +134,3 @@ export const GetAccentsCount = (text: string) => {
     return text.match(/[ÁÉÍÓÚáéíóúÑñ._-]/g)?.length || "0";
 }
 
-const ConvertToNormalText = (text: string) => {
-    if (Number(CountSpaces(text)) >= 1) {
-        return text
-    }
-    const words = text.split(/(?=[A-Z])|_| /);
-
-    const normalizedText = words.map(word => word.charAt(0) + word.slice(1)).join(' ');
-
-    return normalizedText;
-}

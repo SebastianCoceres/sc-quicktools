@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import * as TextProcessing from "@/lib/TextProcessing";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Info, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { useCopyToClipboard } from "usehooks-ts";
@@ -56,7 +56,10 @@ const TextTransform: React.FC = (): JSX.Element => {
 
   const debouncedSetExitValue = useCallback(
     (value: string) => {
-      if (!value) return;
+      if (!value) {
+        setDebouncedValue("");
+        return;
+      }
 
       if (!selectedFn) {
         toast({
@@ -102,7 +105,7 @@ const TextTransform: React.FC = (): JSX.Element => {
             <Info />
             <span className="sr-only">Funcitions description</span>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl max-h-[90svh] overflow-y-auto">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Info</DialogTitle>
               <DialogDescription asChild>
@@ -149,59 +152,53 @@ const TextTransform: React.FC = (): JSX.Element => {
         />
       </motion.div>
 
-      <AnimatePresence>
-        {userInput && debouncedValue && selectedFn && (
-          <motion.div exit={"hidden"} variants={result}>
-            <h2 className="text-xl border-b mb-2 py-4 font-extrabold tracking-tighter ">
-              Result
-            </h2>
-            <p>
-              <span className="inline-block mr-2">
-                <strong>Length</strong>: {TextProcessing.GetLength(userInput)} ,
-              </span>
-              <span className="inline-block mr-2">
-                <strong>Characters</strong>:{" "}
-                {TextProcessing.GetCharacterCount(userInput)} ,
-              </span>
+      <motion.div exit={"hidden"} variants={result}>
+        <h2 className="text-xl border-b mb-2 py-4 font-extrabold tracking-tighter ">
+          Result
+        </h2>
+        <p>
+          <span className="inline-block mr-2">
+            <strong>Length</strong>: {TextProcessing.GetLength(userInput)} ,
+          </span>
+          <span className="inline-block mr-2">
+            <strong>Characters</strong>:{" "}
+            {TextProcessing.GetCharacterCount(userInput)} ,
+          </span>
 
-              <span className="inline-block mr-2">
-                <strong>Words</strong>: {TextProcessing.GetWordCount(userInput)}
-                ,
-              </span>
-              <span className="inline-block mr-2">
-                <strong>Accents</strong>:{" "}
-                {TextProcessing.GetAccentsCount(userInput)},
-              </span>
+          <span className="inline-block mr-2">
+            <strong>Words</strong>: {TextProcessing.GetWordCount(userInput)},
+          </span>
+          <span className="inline-block mr-2">
+            <strong>Accents</strong>:{" "}
+            {TextProcessing.GetAccentsCount(userInput)},
+          </span>
 
-              <span className="inline-block mr-2">
-                <strong>Spaces</strong>: {TextProcessing.CountSpaces(userInput)}
-              </span>
-            </p>
-            <motion.div
-              animate="visible"
-              initial="hidden"
-              exit={"hidden"}
-              transition={{ duration: 1 }}
-              variants={result}
-              className="max-w-[700px] min-h-[200px] w-full my-8 text-lg text-muted-foreground border rounded-md"
-            >
-              <p className="text-lg p-4 text-muted-foreground h-full w-full break-words">
-                {debouncedValue}
-              </p>
-            </motion.div>
-            <Button
-              onClick={() => {
-                copy(debouncedValue as string);
-                setIsCopyped(true);
-              }}
-              title={`Copied! - < ${copiedValue} >` || ""}
-            >
-              {isCopyped ? "Copied" : "Copy"}
-            </Button>
-          </motion.div>
-        )}
-        ¡
-      </AnimatePresence>
+          <span className="inline-block mr-2">
+            <strong>Spaces</strong>: {TextProcessing.CountSpaces(userInput)}
+          </span>
+        </p>
+        <motion.div
+          animate="visible"
+          initial="hidden"
+          exit={"hidden"}
+          transition={{ duration: 1 }}
+          variants={result}
+          className="max-w-[700px] min-h-[200px] w-full my-8 text-lg text-muted-foreground border rounded-md"
+        >
+          <p className="text-lg p-4 text-muted-foreground h-full w-full break-words">
+            {debouncedValue}
+          </p>
+        </motion.div>
+        <Button
+          onClick={() => {
+            copy(debouncedValue as string);
+            setIsCopyped(true);
+          }}
+          title={`Copied! - < ${copiedValue} >` || ""}
+        >
+          {isCopyped ? "Copied" : "Copy"}
+        </Button>
+      </motion.div>
     </div>
   );
 };
