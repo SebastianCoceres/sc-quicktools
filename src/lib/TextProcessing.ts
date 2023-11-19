@@ -117,7 +117,12 @@ export const GetLength = (text: string) => {
 }
 
 export const GetWordCount = (text: string) => {
-    return String(Trimmed(RemoveExtraSpaces(CleanText(text))).split(" ").length);
+    console.log()
+    if (Trimmed(RemoveExtraSpaces(CleanText(text))).length === 0) {
+        return 0
+    } else {
+        return String(Trimmed(RemoveExtraSpaces(CleanText(text))).split(" ").length);
+    }
     // Example: "hello world" -> 2
 }
 
