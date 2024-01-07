@@ -88,7 +88,7 @@ export const functionsData = [
             {
                 name: "ConvertToNormalText",
                 description:
-                    "Convierte el texto de los distintos formatos a uno normal agregando espacios donde faltan. No cambia las mayusculas. Los acentos y caracteres especiales se mantienen.",
+                    "Convierte el texto de los distintos formatos a uno normal agregando espacios donde faltan. No cambia las mayusculas. Los acentos se mantienen.",
                 example: "helloWorld -> hello World",
             },
         ],

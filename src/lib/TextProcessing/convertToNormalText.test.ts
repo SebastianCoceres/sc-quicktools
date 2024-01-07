@@ -36,6 +36,7 @@ test('convertToNormalText', () => {
     expect(convertToNormalText('')).toBe('');
     expect(convertToNormalText('   ')).toBe('');
 
-    expect(convertToNormalText('TextóDeEjemplo')).toBe('Textó De Ejemplo');
+    expect(convertToNormalText('TextóDeEjemplo')).toBe('Texto De Ejemplo');
     expect(convertToNormalText('Textó_De-Ejemplo')).toBe('Textó De Ejemplo');
+    expect(convertToNormalText('TextóDe$Ejemplo')).toBe('Texto De Ejemplo');
 });
