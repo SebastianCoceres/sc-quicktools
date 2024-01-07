@@ -33,7 +33,7 @@ const result = {
 const selectOptions = Object.keys(TextProcessing).map((key, i) => {
   return (
     <SelectItem key={i} value={key}>
-      {key}
+      {i} - {TextProcessing.FirstCapital(TextProcessing.convertToNormalText(key))}
     </SelectItem>
   );
 });
