@@ -124,7 +124,7 @@ const TextTransform: React.FC = (): JSX.Element => {
         className="w-full my-8 text-lg text-muted-foreground flex flex-col md:flex-row gap-4"
       >
         <Select onValueChange={(value) => setSelectedFn(value)}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[20em] whitespace-nowrap">
             <SelectValue placeholder="Select a function" />
           </SelectTrigger>
           <SelectContent>{selectOptions}</SelectContent>

@@ -12,7 +12,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-export function NavigationMenuDemo() {
+export function MainMenu() {
   return (
     <NavigationMenu>
       <NavigationMenuList>

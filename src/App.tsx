@@ -1,5 +1,5 @@
 import MainLayout from "@/components/layouts/MainLayout";
-import { TextTransform } from "@/pages";
+import { TextTransform, ColorTransform } from "@/pages";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -18,6 +18,14 @@ export const routes = [
     title: "Text Transform",
     description:
       "Transform text to various formats, such as camelCase, snake_case, kebab-case, and PascalCase.",
+  },
+  {
+    key: "2",
+    path: "/sc-quicktools/color-transform",
+    element: <ColorTransform />,
+    title: "Color Transform",
+    description:
+      "Transform colors to different formats, such as RGB, HEX, HSL, and CMYK.",
   },
 ];
 
