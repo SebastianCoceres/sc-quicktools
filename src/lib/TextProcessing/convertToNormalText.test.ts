@@ -35,4 +35,7 @@ test('convertToNormalText', () => {
     // Pruebas con textos vacíos o solo espacios
     expect(convertToNormalText('')).toBe('');
     expect(convertToNormalText('   ')).toBe('');
+
+    expect(convertToNormalText('TextóDeEjemplo')).toBe('Textó De Ejemplo');
+    expect(convertToNormalText('Textó_De-Ejemplo')).toBe('Textó De Ejemplo');
 });

@@ -1,11 +1,8 @@
-
-
-const CAMELCASEREGEX = /^[a-z][a-zA-Z0-9]*[A-Z][a-z0-9]*$/
-const SNAKECASEREGEX = /^[a-z]+(_[a-z]+)+$/
-const KEBABCASEREGEX = /^[a-z][a-z0-9]*(-[a-z0-9]+)+$/
-const PASCALCASEREGEX = /^[A-Z][a-z0-9]+(?:[A-Z][a-z0-9]+)*$/
-const CAPITALSNAKECASEREGEX = /^[A-Z]+(_[A-Z]+)+$/
-
+const CAMELCASEREGEX = /^[a-z\u00E0-\u00FC][a-zA-Z0-9\u00E0-\u00FC]*[A-Z\u00C0-\u00DC][a-z0-9\u00E0-\u00FC]*$/
+const SNAKECASEREGEX = /^[a-z\u00E0-\u00FC]+(_[a-z\u00E0-\u00FC]+)+$/
+const KEBABCASEREGEX = /^[a-z\u00E0-\u00FC][a-z0-9\u00E0-\u00FC]*(-[a-z0-9\u00E0-\u00FC]+)+$/
+const PASCALCASEREGEX = /^[A-Z\u00C0-\u00DC][a-z0-9\u00E0-\u00FC]+(?:[A-Z\u00C0-\u00DC][a-z0-9\u00E0-\u00FC]+)*$/
+const CAPITALSNAKECASEREGEX = /^[A-Z\u00C0-\u00DC]+(_[A-Z\u00C0-\u00DC]+)+$/
 
 export const checkType: {
     isCamelCase: (str: string) => boolean,

@@ -85,6 +85,12 @@ export const functionsData = [
                     "Convierte el texto a snake_case pero con todas las letras en mayúsculas.",
                 example: "hello world -> HELLO_WORLD",
             },
+            {
+                name: "ConvertToNormalText",
+                description:
+                    "Convierte el texto de los distintos formatos a uno normal agregando espacios donde faltan. No cambia las mayusculas. Los acentos y caracteres especiales se mantienen.",
+                example: "helloWorld -> hello World",
+            },
         ],
     },
     {
