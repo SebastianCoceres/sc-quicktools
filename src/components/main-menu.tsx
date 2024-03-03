@@ -21,7 +21,7 @@ export function MainMenu() {
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {routes
-                .filter((route) => route.path != "/")
+                .filter((route) => route.path != "/" && route.path != "/sc-quicktools/")
                 .map((route) => (
                   <ListItem
                     key={route.key}

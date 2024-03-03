@@ -8,13 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Combobox } from "@/components/ui/combobox";
 import { useToast } from "@/components/ui/use-toast";
 import * as TextProcessing from "@/lib/TextProcessing";
 import { motion } from "framer-motion";
@@ -30,12 +24,8 @@ const result = {
   visible: { opacity: 1, y: 0 },
 };
 
-const selectOptions = Object.keys(TextProcessing).map((key, i) => {
-  return (
-    <SelectItem key={i} value={key}>
-      {i} - {TextProcessing.FirstCapital(TextProcessing.convertToNormalText(key))}
-    </SelectItem>
-  );
+const selectOptions = Object.keys(TextProcessing).map((key) => {
+  return { value: key, label: `${TextProcessing.FirstCapital(TextProcessing.convertToNormalText(key))}` };
 });
 
 const TextTransform: React.FC = (): JSX.Element => {
@@ -70,13 +60,13 @@ const TextTransform: React.FC = (): JSX.Element => {
 
         return;
       }
-
       if (
         selectedFn &&
         TextProcessing[selectedFn as keyof typeof TextProcessing]
       ) {
         const text =
           TextProcessing[selectedFn as keyof typeof TextProcessing](value);
+
         setDebouncedValue(text as string);
         return;
       }
@@ -123,12 +113,13 @@ const TextTransform: React.FC = (): JSX.Element => {
         variants={list}
         className="w-full my-8 text-lg text-muted-foreground flex flex-col md:flex-row gap-4"
       >
-        <Select onValueChange={(value) => setSelectedFn(value)}>
-          <SelectTrigger className="w-[20em] whitespace-nowrap">
-            <SelectValue placeholder="Select a function" />
-          </SelectTrigger>
-          <SelectContent>{selectOptions}</SelectContent>
-        </Select>
+        <Combobox
+          items={selectOptions}
+          onChangeValue={(value: string) => {
+            setSelectedFn(value)
+          }}
+        >
+        </Combobox>
         <Input
           className="w-full"
           onChange={(e) => {

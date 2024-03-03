@@ -70,7 +70,23 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  .scrollbars-thin {
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply bg-background;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-foreground;
+
+    }
   }
 }
