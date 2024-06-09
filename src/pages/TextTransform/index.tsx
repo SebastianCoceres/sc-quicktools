@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Combobox } from "@/components/ui/combobox";
 import { useToast } from "@/components/ui/use-toast";
-import * as TextProcessing from "@/lib/TextProcessing";
+import * as TextProcessing from "@/services/TextProcessing";
 import { motion } from "framer-motion";
 import { Info, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
