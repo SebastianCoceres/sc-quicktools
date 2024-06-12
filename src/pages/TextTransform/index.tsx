@@ -17,12 +17,8 @@ import { useCallback, useEffect, useState } from "react";
 import { useCopyToClipboard } from "usehooks-ts";
 import Description from "../../components/ui/descriptions";
 import { functionsData } from "./functionDescriptions";
+import { fadeInFromTop, fadeInFromBottom } from "@/lib/animations";
 
-const list = { hidden: { opacity: 0, y: -100 }, visible: { opacity: 1, y: 0 } };
-const result = {
-  hidden: { opacity: 0, y: 100 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const selectOptions = Object.keys(TextProcessing).map((key) => {
   return { value: key, label: `${TextProcessing.FirstCapital(TextProcessing.convertToNormalText(key))}` };
@@ -110,7 +106,7 @@ const TextTransform: React.FC = (): JSX.Element => {
         animate="visible"
         initial="hidden"
         transition={{ duration: 1 }}
-        variants={list}
+        variants={fadeInFromTop}
         className="w-full my-8 text-lg text-muted-foreground flex flex-col md:flex-row gap-4"
       >
         <Combobox
@@ -143,7 +139,7 @@ const TextTransform: React.FC = (): JSX.Element => {
         />
       </motion.div>
 
-      <motion.div exit={"hidden"} variants={result}>
+      <motion.div exit={"hidden"} variants={fadeInFromBottom}>
         <h2 className="text-xl border-b mb-2 py-4 font-extrabold tracking-tighter ">
           Result
         </h2>
@@ -173,7 +169,7 @@ const TextTransform: React.FC = (): JSX.Element => {
           initial="hidden"
           exit={"hidden"}
           transition={{ duration: 1 }}
-          variants={result}
+          variants={fadeInFromBottom}
           className="max-w-[700px] min-h-[200px] w-full my-8 text-lg text-muted-foreground border rounded-md"
         >
           <p className="text-lg p-4 text-muted-foreground h-full w-full break-words">
