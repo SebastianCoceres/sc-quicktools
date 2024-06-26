@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Combobox } from "@/components/ui/combobox";
 import {
   Dialog,
   DialogContent,
@@ -8,8 +9,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Combobox } from "@/components/ui/combobox";
 import { useToast } from "@/components/ui/use-toast";
+import { fadeInFromBottom, fadeInFromTop } from "@/lib/animations";
 import * as TextProcessing from "@/services/TextProcessing";
 import { motion } from "framer-motion";
 import { Info, X } from "lucide-react";
@@ -17,7 +18,6 @@ import { useCallback, useEffect, useState } from "react";
 import { useCopyToClipboard } from "usehooks-ts";
 import Description from "../../components/ui/descriptions";
 import { functionsData } from "./functionDescriptions";
-import { fadeInFromTop, fadeInFromBottom } from "@/lib/animations";
 
 
 const selectOptions = Object.keys(TextProcessing).map((key) => {
