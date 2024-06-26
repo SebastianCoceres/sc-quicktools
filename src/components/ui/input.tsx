@@ -5,12 +5,13 @@ import { cn } from "@/lib/utils";
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  containerClassName?: string;
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, prefix, suffix, ...props }, ref) => {
+  ({ className, containerClassName, type, prefix, suffix, ...props }, ref) => {
     return (
-      <div className="relative w-full">
+      <div className={cn("relative w-full", containerClassName)}>
         {prefix && (
           <div className="absolute inset-y-0 left-0 flex items-center pl-2">
             {prefix}

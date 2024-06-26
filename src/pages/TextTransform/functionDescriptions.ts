@@ -1,6 +1,6 @@
 export const functionsData = [
     {
-        category: "Text Formatting and Cleaning",
+        category: "Formateo de texto y limpieza",
         functions: [
             {
                 name: "Trimmed",
@@ -27,7 +27,7 @@ export const functionsData = [
         ],
     },
     {
-        category: "Case Conversion",
+        category: "Conversión",
         functions: [
             {
                 name: "Uppercase",
@@ -52,7 +52,7 @@ export const functionsData = [
         ],
     },
     {
-        category: "Text Transformation",
+        category: "Transformación de texto",
         functions: [
             {
                 name: "Reverse",
@@ -94,7 +94,7 @@ export const functionsData = [
         ],
     },
     {
-        category: "Counting Functions",
+        category: "Funciones de conteo",
         functions: [
             {
                 name: "GetLength",

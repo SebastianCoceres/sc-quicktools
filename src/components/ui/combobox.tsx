@@ -45,13 +45,13 @@ export function Combobox({
                 >
                     {value
                         ? items.find((item) => item.value.toLowerCase() === value)?.label
-                        : "Select one..."}
+                        : "Seleccionar..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] p-0">
                 <Command className="max-h-[30em]">
-                    <CommandInput placeholder="Search..." />
+                    <CommandInput placeholder="Buscar..." />
                     <CommandEmpty>Nothing found.</CommandEmpty>
                     <CommandGroup className="overflow-y-auto scrollbars-thin">
                         {items.map((item) => (

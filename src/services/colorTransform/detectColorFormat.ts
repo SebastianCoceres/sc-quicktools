@@ -1,9 +1,3 @@
-import { hexToRgba, hexToHsla } from "./hexTransform"
-import { hslaToHex, hslaToRgba } from "./hslTransform"
-import { namedColorToHex } from "./namedTransform"
-import { rgbaToHex, rgbaToHsla } from "./rgbTransform"
-
-
 export const COLORS = {
     "aliceblue": "#f0f8ff",
     "antiquewhite": "#faebd7",
@@ -150,13 +144,25 @@ export const COLORS = {
 
 export const regexs = {
     rgb: /rgba?\(\s*(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\s*,\s*(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\s*,\s*(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])(?:\s*,\s*(0|1|0?\.\d+))?\s*\)/i,
-    hsl: /hsla?\(\s*(3[0-5][0-9]|360|[0-2]?[0-9]?[0-9])\s*,\s*(100|[0-9]?[0-9])%\s*,\s*(100|[0-9]?[0-9])%(?:\s*,\s*(0|1|0?\.\d+))?\s*\)/i,
-    hex: /#([a-fA-F0-9]{3,4}|[a-fA-F0-9]{6,8})\b/i,
-    named: new RegExp(Object.keys(COLORS).join("|"), "i")
+    hsl: /(hsl|hsla)\(\s*(3[0-5]?[0-9](?:\.\d+)?|360|[0-2]?[0-9]?[0-9](?:\.\d+)?)\s*,\s*(100|[0-9]?[0-9](?:\.\d+)?)%\s*,\s*(100|[0-9]?[0-9](?:\.\d+)?)%(?:\s*,\s*(0|1|0?\.\d+))?\s*\)/i,
+    hex: /^#([a-fA-F0-9]{3}|[a-fA-F0-9]{4}|[a-fA-F0-9]{6}|[a-fA-F0-9]{8})$/i,
+    named: new RegExp(`\\b(?:${Object.keys(COLORS).join("|")})\\b`, "i")
 }
 
 
-export function DetectColorFormat(color: string) {
+
+/**
+ * Detects the format of a given color string.
+ *
+ * @param {string} color - The color string to be analyzed.
+ * @return {string} The format of the color string: "hex", "rgba", "hsla", "named", or "invalid format".
+ * 
+ * @example
+ * const format = DetectColorFormat("rgb(255, 0, 0)");
+ * console.log(format);
+ * // Output: "rgba"
+ */
+export function DetectColorFormat(color: string): string {
     if (color.match(regexs.hex)) {
         return "hex"
     }
@@ -170,40 +176,5 @@ export function DetectColorFormat(color: string) {
         return "named"
     }
     return "invalid format"
-}
-
-export function TransformColor(color: string): Record<string, string> {
-    const transformedColors = {
-        hex: '',
-        rgba: '',
-        hsla: '',
-    }
-
-    if (DetectColorFormat(color) == "hex") {
-        transformedColors.hex = color
-        transformedColors.rgba = hexToRgba(color)
-        transformedColors.hsla = hexToHsla(color)
-    }
-
-    if (DetectColorFormat(color) == "rgba") {
-        transformedColors.rgba = color
-        transformedColors.hex = rgbaToHex(color)
-        transformedColors.hsla = rgbaToHsla(color)
-    }
-
-    if (DetectColorFormat(color) == "hsla") {
-        transformedColors.hsla = color
-        transformedColors.hex = hslaToHex(color)
-        transformedColors.rgba = hslaToRgba(color)
-    }
-
-    if (DetectColorFormat(color) == "named") {
-        transformedColors.hex = namedColorToHex(color)
-        if (!transformedColors.hex) return transformedColors
-        transformedColors.rgba = hexToRgba(transformedColors.hex)
-        transformedColors.hsla = hexToHsla(transformedColors.hex)
-    }
-
-    return transformedColors
 }
 

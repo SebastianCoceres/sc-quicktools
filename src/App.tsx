@@ -15,17 +15,17 @@ export const routes = [
     key: "1",
     path: "/sc-quicktools/text",
     element: <TextTransform />,
-    title: "Text",
+    title: "Texto",
     description:
-      "Transform text to various formats, such as camelCase, snake_case, kebab-case, and PascalCase.",
+      "Transforma texto a varios formatos, tales como camelCase, snake_case, kebab-case y más.",
   },
   {
     key: "2",
     path: "/sc-quicktools/color",
     element: <ColorTransform />,
-    title: "Colors",
+    title: "Colores",
     description:
-      "Transform color to various formats, such as hex, rgb, rgba, hsl, and hsla.",
+      "Transforma colores a diferentes sistemas de notación. hex, rgba, hsla",
   }
 ];
 

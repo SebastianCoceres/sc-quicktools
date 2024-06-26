@@ -49,8 +49,8 @@ const TextTransform: React.FC = (): JSX.Element => {
 
       if (!selectedFn) {
         toast({
-          title: "Function is needed",
-          description: "Please select a function",
+          title: "Es necesario seleccionar una función",
+          description: "Por favor, seleccione una función.",
           variant: "destructive",
         });
 
@@ -84,12 +84,12 @@ const TextTransform: React.FC = (): JSX.Element => {
     <div className="flex w-full flex-col items-start gap-2">
       <div className="w-full flex justify-between">
         <h1 className="text-3xl border-b py-4 font-extrabold leading-tight tracking-tighter md:text-4xl ">
-          Text Transform
+          Texto
         </h1>
         <Dialog>
           <DialogTrigger>
             <Info />
-            <span className="sr-only">Funcitions description</span>
+            <span className="sr-only">Descripciones</span>
           </DialogTrigger>
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
@@ -139,9 +139,9 @@ const TextTransform: React.FC = (): JSX.Element => {
         />
       </motion.div>
 
-      <motion.div exit={"hidden"} variants={fadeInFromBottom}>
-        <h2 className="text-xl border-b mb-2 py-4 font-extrabold tracking-tighter ">
-          Result
+      <motion.div className="w-full" exit={"hidden"} variants={fadeInFromBottom}>
+        <h2 className="text-xl border-b mb-4 py-4 font-extrabold tracking-tighter ">
+          Resultado
         </h2>
         <p>
           <span className="inline-block mr-2">
@@ -170,20 +170,21 @@ const TextTransform: React.FC = (): JSX.Element => {
           exit={"hidden"}
           transition={{ duration: 1 }}
           variants={fadeInFromBottom}
-          className="max-w-[700px] min-h-[200px] w-full my-8 text-lg text-muted-foreground border rounded-md"
+          className=" min-h-[200px] w-full my-8 text-lg text-muted-foreground border rounded-md"
         >
           <p className="text-lg p-4 text-muted-foreground h-full w-full break-words">
             {debouncedValue}
           </p>
         </motion.div>
         <Button
+          disabled={!debouncedValue}
           onClick={() => {
             copy(debouncedValue as string);
             setIsCopyped(true);
           }}
-          title={`Copied! - < ${copiedValue} >` || ""}
+          title={`Copiado! - < ${copiedValue} >` || ""}
         >
-          {isCopyped ? "Copied" : "Copy"}
+          {isCopyped ? "Copiado" : "Copiar"}
         </Button>
       </motion.div>
     </div>
