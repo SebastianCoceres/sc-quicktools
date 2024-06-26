@@ -1,1 +1,1 @@
-export * from './TextProcessing';
+export * from '@/services/TextProcessing';

@@ -1,4 +1,4 @@
-import { useTheme } from "./theme-provider";
+import { useTheme } from "@/components/theme-provider";
 export const MainBackgrounds = () => {
     const { theme } = useTheme();
     return (

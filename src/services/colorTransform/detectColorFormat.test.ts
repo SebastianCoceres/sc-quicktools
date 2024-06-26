@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { DetectColorFormat } from './detectColorFormat'
+import { DetectColorFormat } from '@/services/colorTransform/detectColorFormat'
 
 test('DetectColorFormat', () => {
 

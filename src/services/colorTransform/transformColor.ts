@@ -1,8 +1,8 @@
-import { DetectColorFormat } from "./detectColorFormat"
-import { hexToRgba, hexToHsla, standarizeHexColor } from "./hexTransform"
-import { hslaToHex, hslaToRgba } from "./hslTransform"
-import { namedColorToHex } from "./namedTransform"
-import { rgbaToHex, rgbaToHsla } from "./rgbTransform"
+import { DetectColorFormat } from "@/services/colorTransform/detectColorFormat"
+import { hexToRgba, hexToHsla, standarizeHexColor } from "@/services/colorTransform/hexTransform"
+import { hslaToHex, hslaToRgba } from "@/services/colorTransform/hslTransform"
+import { namedColorToHex } from "@/services/colorTransform/namedTransform"
+import { rgbaToHex, rgbaToHsla } from "@/services/colorTransform/rgbTransform"
 
 /**
  * Transform the input color to different color formats (hex, rgba, hsla) based on the detected color format.

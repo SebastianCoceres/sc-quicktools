@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Link } from "react-router-dom";
-import { routes } from "../App";
+import { routes } from "@/App";
 
 import { cn } from "@/lib/utils";
 import {

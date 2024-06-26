@@ -1,4 +1,4 @@
-import { COLORS, regexs } from "./detectColorFormat";
+import { COLORS, regexs } from "@/services/colorTransform/detectColorFormat";
 
 /**
  * Returns the hexadecimal representation of a named color.

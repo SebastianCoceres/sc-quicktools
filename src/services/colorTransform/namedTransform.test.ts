@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 
-import { namedColorToHex } from './namedTransform'
-import { COLORS } from './detectColorFormat';
+import { namedColorToHex } from '@/services/colorTransform/namedTransform'
+import { COLORS } from '@/services/colorTransform/detectColorFormat';
 
 test('NamedTransform', () => {
     //invalid

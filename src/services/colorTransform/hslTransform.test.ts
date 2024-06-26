@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { hslaToHex } from './hslTransform'
+import { hslaToHex } from '@/services/colorTransform/hslTransform'
 
 test('hslToHex', () => {
     //invalid

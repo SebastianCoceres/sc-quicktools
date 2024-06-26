@@ -1,4 +1,4 @@
-import { regexs } from "./detectColorFormat";
+import { regexs } from "@/services/colorTransform/detectColorFormat";
 
 export function checkHsl(hsl: string): boolean {
     return !!hsl && regexs.hsl.test(hsl)

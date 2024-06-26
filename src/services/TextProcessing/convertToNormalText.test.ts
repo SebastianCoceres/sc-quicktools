@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { convertToNormalText } from "./convertToNormalText";
+import { convertToNormalText } from "@/services/TextProcessing/convertToNormalText";
 
 test('convertToNormalText', () => {
     // Pruebas para snake_case

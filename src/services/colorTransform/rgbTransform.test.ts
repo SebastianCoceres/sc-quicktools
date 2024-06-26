@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { rgbaToHex, rgbaToHsla } from './rgbTransform'
+import { rgbaToHex, rgbaToHsla } from '@/services/colorTransform/rgbTransform'
 
 test('rgb', () => {
     //invalid

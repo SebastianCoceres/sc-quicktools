@@ -1,2 +1,2 @@
-export { default as TextTransform } from './TextTransform';
-export { default as ColorTransform } from './ColorTransform';
+export { default as TextTransform } from '@/pages/TextTransform';
+export { default as ColorTransform } from '@/pages/ColorTransform';

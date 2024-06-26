@@ -16,8 +16,8 @@ import { motion } from "framer-motion";
 import { Info, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { useCopyToClipboard } from "usehooks-ts";
-import Description from "../../components/ui/descriptions";
-import { functionsData } from "./functionDescriptions";
+import Description from "@/components/ui/descriptions";
+import { functionsData } from "@/pages/TextTransform/functionDescriptions";
 
 
 const selectOptions = Object.keys(TextProcessing).map((key) => {

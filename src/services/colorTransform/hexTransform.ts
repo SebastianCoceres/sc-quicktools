@@ -1,5 +1,5 @@
-import { rgbaToHsla } from "./rgbTransform";
-import { regexs } from "./detectColorFormat";
+import { rgbaToHsla } from "@/services/colorTransform/rgbTransform";
+import { regexs } from "@/services/colorTransform/detectColorFormat";
 
 /**
  * Validates if the input string is a valid hexadecimal color code.

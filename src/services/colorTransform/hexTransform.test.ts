@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { hexToRgba, hexToHsla } from './hexTransform'
+import { hexToRgba, hexToHsla } from '@/services/colorTransform/hexTransform'
 
 test('hexToRgba', () => {
 

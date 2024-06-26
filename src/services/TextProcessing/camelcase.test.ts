@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { Camelcase } from './camelcase'
+import { Camelcase } from '@/services/TextProcessing/camelcase'
 
 test('camelCase', () => {
     expect(Camelcase('hello world')).toBe('helloWorld')

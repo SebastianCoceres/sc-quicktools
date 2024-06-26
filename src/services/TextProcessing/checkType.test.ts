@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { checkType } from './checkType'
+import { checkType } from '@/services/TextProcessing/checkType'
 
 test('checkTypes', () => {
     // Pruebas para isCamelCase

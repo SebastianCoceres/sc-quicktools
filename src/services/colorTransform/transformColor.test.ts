@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { TransformColor } from './transformColor'
+import { TransformColor } from '@/services/colorTransform/transformColor'
 
 test('TransformColor', () => {
     //invalid

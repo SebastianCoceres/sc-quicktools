@@ -1,5 +1,5 @@
 import { RemoveAccents, RemoveExtraSpaces, Trimmed } from ".";
-import { checkType } from "./checkType";
+import { checkType } from "@/services/TextProcessing/checkType";
 
 export const convertToNormalText = (text: string) => {
     text = Trimmed(RemoveExtraSpaces(text))

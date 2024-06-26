@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { contrastChecker } from './contrastChecker'
+import { contrastChecker } from '@/services/colorTransform/contrastChecker'
 
 test('contrastChecker', () => {
     //invalid
